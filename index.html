@@ -3,18 +3,23 @@
 <head>
   <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="description" content="西游杀桌面版：3–12人单人及局域网对局。下载游戏、查看各版本更新、加入交流群。">
-  <meta name="theme-color" content="#21150f"><title>西游杀 · 桌面版官网</title>
-  <link rel="icon" href="images/icon.png"><link rel="stylesheet" href="site/styles.css?v=20261004-direct">
-  <script type="module" src="site/app.mjs?v=20261004-direct"></script>
+  <meta name="theme-color" content="#21150f"><title>西游杀 · 官网</title>
+  <link rel="icon" href="images/icon.png"><link rel="stylesheet" href="site/styles.css?v=20261004-platforms">
+  <script type="module" src="site/app.mjs?v=20261004-platforms"></script>
 </head>
 <body>
   <a class="skip-link" href="#main">跳转到正文</a>
   <header class="site-header"><div class="header-inner">
-    <a class="brand" href="#"><img src="images/icon.png" width="48" height="48" alt="西游杀图标"><span>西游杀<small>桌面版</small></span></a>
-    <nav aria-label="主导航"><a href="#features">玩法与画面</a><a href="#updates">更新记录</a><a href="#community">交流群</a><a href="#feedback">问题反馈</a></nav>
+    <a class="brand" href="#"><img src="images/icon.png" width="48" height="48" alt="西游杀图标"><span>西游杀<small>游戏官网</small></span></a>
+    <nav aria-label="主导航"><a href="#features">玩法与画面</a><a href="#mobile">移动端</a><a href="#updates">更新记录</a><a href="#community">交流群</a><a href="#feedback">问题反馈</a></nav>
     <a class="header-github" href="https://github.com/zxz0119/xiyousha-desktop" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
   </div></header>
   <main id="main">
+    <div class="platform-tabs" role="tablist" aria-label="游戏平台">
+      <button type="button" id="tab-desktop" role="tab" aria-selected="true" aria-controls="desktop-panel" data-platform="desktop">电脑端</button>
+      <button type="button" id="tab-mobile" role="tab" aria-selected="false" aria-controls="mobile-panel" tabindex="-1" data-platform="mobile">移动端 <small>准备中</small></button>
+    </div>
+    <div id="desktop-panel" role="tabpanel" aria-labelledby="tab-desktop">
     <section class="hero">
       <svg class="hero-cloud" viewBox="0 0 900 220" aria-hidden="true"><path d="M0 140h120c-70-70 50-110 100-60 30-100 150-60 120 20h140c-60-80 80-140 130-60 80-65 130 25 80 75h210M50 185h215m90 0h335M480 45h140m80 0h160"/></svg>
       <div class="hero-inner">
@@ -32,10 +37,20 @@
       <div class="gallery"><button class="shot" data-image="images/gameplay-v010.png" data-title="牌桌与响应"><img src="images/gameplay-v010.png" width="1920" height="1080" alt="牌桌与响应画面" loading="lazy" decoding="async"><span>牌桌与响应<small>点击放大 ↗</small></span></button><button class="shot" data-image="images/online-room-v010.png" data-title="局域网联机房间"><img src="images/online-room-v010.png" width="1920" height="1080" alt="局域网联机房间" loading="lazy" decoding="async"><span>邀请好友，同桌开局<small>点击放大 ↗</small></span></button><button class="shot" data-image="images/card-library-v010.png" data-title="卡牌查询"><img src="images/card-library-v010.png" width="1920" height="1080" alt="卡牌查询" loading="lazy" decoding="async"><span>卡牌与技能，随时查询<small>点击放大 ↗</small></span></button><button class="shot" data-image="images/archive-v010.png" data-title="对局记录"><img src="images/archive-v010.png" width="1920" height="1080" alt="对局记录与回放" loading="lazy" decoding="async"><span>重看这一局的关键时刻<small>点击放大 ↗</small></span></button></div>
     </section>
     <section class="updates-section" id="updates"><div class="section updates-inner"><div class="section-heading"><p class="eyebrow">每一程，都有新变化</p><h2>更新记录</h2><p>点开一个版本，查看完整改动与下载入口。</p></div><p id="release-status" class="release-status" role="status">正在读取发布记录…</p><div id="release-list"></div><noscript><p>请前往 <a href="https://github.com/zxz0119/xiyousha-desktop/releases">GitHub 发布页</a>查看所有版本；夸克网盘也提供各版本安装包，带码链接可直接进入。</p></noscript><a class="text-link" href="https://github.com/zxz0119/xiyousha-desktop/releases" target="_blank" rel="noopener noreferrer">在 GitHub 查看全部发布记录 ↗</a></div></section>
-    <section class="section feedback" id="feedback"><div><p class="eyebrow">让西游之路，更顺一点</p><h2>遇到问题，告诉我们</h2><p>在反馈里写明游戏版本、发生步骤，附上问题截图，方便核对与修复。</p><div class="feedback-actions"><a class="button button-primary" href="https://docs.qq.com/form/page/DYUVacFVFQm10dkJm" target="_blank" rel="noopener noreferrer">填写问题反馈 ↗</a><a class="button" href="https://docs.qq.com/smartsheet/DYW5qVFFMVHdaWndt" target="_blank" rel="noopener noreferrer">查看反馈问题 ↗</a></div><p class="muted">也可以扫码打开腾讯文档反馈表。</p></div><figure class="feedback-figure"><div class="feedback-qr"><img src="images/feedback-qr.png" width="558" height="639" alt="西游杀问题反馈腾讯文档二维码" loading="lazy" decoding="async"></div><figcaption>扫码填写问题反馈</figcaption></figure></section>
+    </div>
+    <div id="mobile-panel" role="tabpanel" aria-labelledby="tab-mobile" hidden>
+      <section class="hero mobile-hero" id="mobile"><div class="hero-inner">
+        <div class="hero-copy"><p class="eyebrow">西游之旅 · 即将在掌间继续</p><h1>西游杀</h1><p class="hero-subtitle">移动端</p>
+          <p class="mobile-status">尚未发布</p><p class="hero-description">移动端版本正在准备中。<br>正式发布后，这里会提供安装包与更新记录。</p>
+          <p class="mobile-note">当前暂无公开的移动端安装包。</p><a class="button" href="#community">查看发布动态 →</a>
+        </div>
+        <div class="mobile-art" aria-hidden="true"><div class="phone-preview"><span class="phone-speaker"></span><img src="images/icon.png" width="120" height="120" alt=""><span class="phone-title">西游杀</span><span class="phone-status">移动端 · 准备中</span></div></div>
+      </div></section>
+    </div>
+    <section class="section feedback" id="feedback"><div><p class="eyebrow">让西游之路，更顺一点</p><h2>遇到问题，告诉我们</h2><p>在反馈里写明游戏平台、游戏版本、发生步骤，附上问题截图，方便核对与修复。</p><div class="feedback-actions"><a class="button button-primary" href="https://docs.qq.com/form/page/DYUVacFVFQm10dkJm" target="_blank" rel="noopener noreferrer">填写问题反馈 ↗</a><a class="button" href="https://docs.qq.com/smartsheet/DYW5qVFFMVHdaWndt" target="_blank" rel="noopener noreferrer">查看反馈问题 ↗</a></div><p class="muted">也可以扫码打开腾讯文档反馈表。</p></div><figure class="feedback-figure"><div class="feedback-qr"><img src="images/feedback-qr.png" width="558" height="639" alt="西游杀问题反馈腾讯文档二维码" loading="lazy" decoding="async"></div><figcaption>扫码填写问题反馈</figcaption></figure></section>
     <section class="section community" id="community"><div><p class="eyebrow">西游路上，一起同行</p><h2>来群里坐一桌</h2><p>交流玩法、反馈问题，或找朋友约一局。</p><p class="group-name">西游杀 QQ 交流群</p><div class="group-number">1126010456</div><p class="muted">搜索群号，或使用 QQ 扫码加入。</p><a class="text-link" href="#feedback">遇到问题？填写反馈或查看已有问题 →</a></div><div class="qr-frame"><img src="images/qq-group.jpg" width="1152" height="2048" alt="西游杀QQ交流群二维码，群号1126010456" loading="lazy" decoding="async"></div></section>
   </main>
-  <footer class="site-footer"><div class="footer-inner"><div class="footer-brand"><img src="images/icon.png" width="64" height="64" alt=""><div><strong>西游杀桌面版</strong><p>非官方 · 非商业 · 独立个人作品</p></div></div><div class="footer-links"><a href="https://github.com/zxz0119/xiyousha-desktop/blob/main/README.md">完整介绍与玩法</a><a href="https://github.com/zxz0119/xiyousha-desktop/releases">下载与发布</a><a href="https://docs.qq.com/form/page/DYUVacFVFQm10dkJm">问题反馈</a><a href="https://docs.qq.com/smartsheet/DYW5qVFFMVHdaWndt">查看反馈问题</a><a href="https://pan.quark.cn/s/7b98d60e6ce2?pwd=Jd1Z">夸克各版本</a></div><details class="credits"><summary>参考、字体与音乐鸣谢</summary><p>参考项目：<a href="https://github.com/w159014462z/UnityDemo">w159014462z / UnityDemo</a>。游戏官网复用游戏图标和公开截图，标题字体使用 Ma Shan Zheng，<a href="site/fonts/MaShanZheng-OFL.txt">字体许可</a>；游戏另使用 <a href="https://github.com/lxgw/LxgwWenKai-Lite/blob/main/OFL.txt">LXGW WenKai Lite</a>。</p><p>游戏音乐：Kevin MacLeod 的 <a href="https://incompetech.com/music/royalty-free/index.html?Search=Search&amp;isrc=USUAN2100001">Guzheng City</a>、<a href="https://incompetech.com/music/royalty-free/index.html?Search=Search&amp;isrc=USUAN1100682">Eastern Thought</a>（<a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>）；Tozan 的 <a href="https://opengameart.org/content/asianoriental2">Asianoriental2</a>、yd 的 <a href="https://opengameart.org/content/oriented">Oriented</a>（<a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0</a>）。音乐未裁剪、未改编，官网不自动播放音乐。</p><p>原作角色与相关素材权利归各自权利人；第三方卡面与人物素材授权尚未核实。如有权利问题，请通过仓库联系作者处理。</p></details><p class="footer-note">游戏介绍以正式发布版本为准，开发中的源码改动不代表当前安装包已更新。</p></div></footer>
+  <footer class="site-footer"><div class="footer-inner"><div class="footer-brand"><img src="images/icon.png" width="64" height="64" alt=""><div><strong>西游杀</strong><p>非官方 · 非商业 · 独立个人作品</p></div></div><div class="footer-links"><a href="https://github.com/zxz0119/xiyousha-desktop/blob/main/README.md">电脑端介绍与玩法</a><a href="https://github.com/zxz0119/xiyousha-desktop/releases">下载与发布</a><a href="https://docs.qq.com/form/page/DYUVacFVFQm10dkJm">问题反馈</a><a href="https://docs.qq.com/smartsheet/DYW5qVFFMVHdaWndt">查看反馈问题</a><a href="https://pan.quark.cn/s/7b98d60e6ce2?pwd=Jd1Z">夸克电脑端版本</a></div><details class="credits"><summary>参考、字体与音乐鸣谢</summary><p>参考项目：<a href="https://github.com/w159014462z/UnityDemo">w159014462z / UnityDemo</a>。游戏官网复用游戏图标和公开截图，标题字体使用 Ma Shan Zheng，<a href="site/fonts/MaShanZheng-OFL.txt">字体许可</a>；游戏另使用 <a href="https://github.com/lxgw/LxgwWenKai-Lite/blob/main/OFL.txt">LXGW WenKai Lite</a>。</p><p>游戏音乐：Kevin MacLeod 的 <a href="https://incompetech.com/music/royalty-free/index.html?Search=Search&amp;isrc=USUAN2100001">Guzheng City</a>、<a href="https://incompetech.com/music/royalty-free/index.html?Search=Search&amp;isrc=USUAN1100682">Eastern Thought</a>（<a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>）；Tozan 的 <a href="https://opengameart.org/content/asianoriental2">Asianoriental2</a>、yd 的 <a href="https://opengameart.org/content/oriented">Oriented</a>（<a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0</a>）。音乐未裁剪、未改编，官网不自动播放音乐。</p><p>原作角色与相关素材权利归各自权利人；第三方卡面与人物素材授权尚未核实。如有权利问题，请通过仓库联系作者处理。</p></details><p class="footer-note">游戏介绍以正式发布版本为准，开发中的源码改动不代表当前安装包已更新。</p></div></footer>
   <dialog id="image-dialog" aria-labelledby="image-title"><div class="dialog-heading"><h2 id="image-title">游戏画面</h2><button type="button" id="close-image" aria-label="关闭大图">关闭 ✕</button></div><img id="large-image" alt=""><a id="original-image" target="_blank" rel="noopener noreferrer">打开原图 ↗</a></dialog>
 </body>
 </html>

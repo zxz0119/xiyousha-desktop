@@ -57,5 +57,33 @@ document.addEventListener('click',async event=>{
 });
 $('#close-image').addEventListener('click',()=>$('#image-dialog').close());
 $('#image-dialog').addEventListener('click',event=>{if(event.target===$('#image-dialog')){const r=event.target.getBoundingClientRect();if(event.clientX<r.left||event.clientX>r.right||event.clientY<r.top||event.clientY>r.bottom)event.target.close();}});
-window.addEventListener('hashchange',revealHash);
+function selectPlatform(platform){
+  for(const name of ['desktop','mobile']){
+    const active=name===platform,tab=$('#tab-'+name);
+    tab.setAttribute('aria-selected',String(active));tab.tabIndex=active?0:-1;
+    $('#'+name+'-panel').hidden=!active;
+  }
+}
+function platformRoute(){
+  const hash=location.hash;
+  if(hash==='#mobile'){selectPlatform('mobile');window.scrollTo(0,0);}
+  else if(['','#desktop','#features','#updates'].includes(hash)||hash.startsWith('#release-')){
+    const switched=$('#desktop-panel').hidden;selectPlatform('desktop');
+    if(hash==='#desktop'||hash==='')window.scrollTo(0,0);
+    else if(switched&&(hash==='#features'||hash==='#updates'))document.getElementById(hash.slice(1))?.scrollIntoView({block:'start'});
+  }
+  revealHash();
+}
+document.querySelector('[role="tablist"]').addEventListener('click',event=>{
+  const tab=event.target.closest('[data-platform]');if(!tab)return;
+  selectPlatform(tab.dataset.platform);location.hash=tab.dataset.platform;window.scrollTo(0,0);
+});
+document.querySelector('[role="tablist"]').addEventListener('keydown',event=>{
+  const tabs=[...document.querySelectorAll('[data-platform]')],index=tabs.indexOf(event.target);
+  if(index<0||!['ArrowLeft','ArrowRight','Home','End'].includes(event.key))return;
+  event.preventDefault();const next=event.key==='Home'?0:event.key==='End'?1:(index+(event.key==='ArrowRight'?1:-1)+2)%2;
+  tabs[next].click();tabs[next].focus();
+});
+window.addEventListener('hashchange',platformRoute);
+platformRoute();
 updates();

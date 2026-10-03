@@ -14,6 +14,8 @@
 
 夸克链接已携带提取码，点击即可进入。
 
+[查看移动端入口](https://zxz0119.github.io/xiyousha-desktop/#mobile)：移动端正在准备中，尚未正式发布或提供公开安装包。
+
 [填写问题反馈](https://docs.qq.com/form/page/DYUVacFVFQm10dkJm) · [查看反馈问题](https://docs.qq.com/smartsheet/DYW5qVFFMVHdaWndt)
 
 ![v0.10.0 主页](images/home-v010.png)
