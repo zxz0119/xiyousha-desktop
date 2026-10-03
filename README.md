@@ -10,9 +10,11 @@
 
 [下载 Windows x64 安装包（v0.10.0）](https://github.com/zxz0119/xiyousha-desktop/releases/download/v0.10.0/xiyousha_0.10.0_x64-setup.exe) · [查看发布说明](https://github.com/zxz0119/xiyousha-desktop/releases/tag/v0.10.0)
 
-[访问西游杀官网：游戏介绍与各版本更新](https://zxz0119.github.io/xiyousha-desktop/) · [夸克网盘：各版本安装包](https://pan.quark.cn/s/7b98d60e6ce2)
+[访问西游杀官网：游戏介绍与各版本更新](https://zxz0119.github.io/xiyousha-desktop/) · [夸克网盘：各版本安装包](https://pan.quark.cn/s/7b98d60e6ce2?pwd=Jd1Z)
 
-夸克提取码：**Jd1Z**。
+夸克提取码：**Jd1Z**。带码链接可自动填写提取码。
+
+[填写问题反馈](https://docs.qq.com/form/page/DYUVacFVFQm10dkJm) · [查看反馈问题](https://docs.qq.com/smartsheet/DYW5qVFFMVHdaWndt)
 
 ![v0.10.0 主页](images/home-v010.png)
 

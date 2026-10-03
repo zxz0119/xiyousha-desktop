@@ -1,6 +1,6 @@
 import {normalizeReleases} from './releases.mjs';
 const repo='https://github.com/zxz0119/xiyousha-desktop',api='https://api.github.com/repos/zxz0119/xiyousha-desktop/releases';
-const quark='https://pan.quark.cn/s/7b98d60e6ce2',code='Jd1Z';
+const quark='https://pan.quark.cn/s/7b98d60e6ce2?pwd=Jd1Z',code='Jd1Z';
 const $=s=>document.querySelector(s);
 function el(tag,text,className){const n=document.createElement(tag);if(text!==undefined)n.textContent=text;if(className)n.className=className;return n;}
 function link(text,url,className){const a=el('a',text,className);a.href=url;a.target='_blank';a.rel='noopener noreferrer';return a;}
