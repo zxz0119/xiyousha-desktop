@@ -1,6 +1,6 @@
 import {normalizeReleases} from './releases.mjs';
 const repo='https://github.com/zxz0119/xiyousha-desktop',api='https://api.github.com/repos/zxz0119/xiyousha-desktop/releases';
-const quark='https://pan.quark.cn/s/7b98d60e6ce2?pwd=Jd1Z',code='Jd1Z';
+const quark='https://pan.quark.cn/s/7b98d60e6ce2?pwd=Jd1Z';
 const $=s=>document.querySelector(s);
 function el(tag,text,className){const n=document.createElement(tag);if(text!==undefined)n.textContent=text;if(className)n.className=className;return n;}
 function link(text,url,className){const a=el('a',text,className);a.href=url;a.target='_blank';a.rel='noopener noreferrer';return a;}
@@ -23,7 +23,6 @@ function notes(body){
     else{list=null;const p=el(heading?'h4':'p');inline(p,heading?heading[1]:line);box.append(p);}
   }return box;
 }
-function copyControl(){const row=el('div',undefined,'quark-code');row.append(document.createTextNode('网盘提供各版本 · 提取码 '),el('code',code));const b=el('button','复制提取码');b.type='button';b.dataset.copyCode='';row.append(b);return row;}
 function date(value){return value?new Date(value).toLocaleDateString('zh-CN',{year:'numeric',month:'2-digit',day:'2-digit'}):'历史版本';}
 function revealHash(){if(!location.hash.startsWith('#release-'))return;const target=document.getElementById(decodeURIComponent(location.hash.slice(1)));if(target){target.open=true;target.scrollIntoView({block:'start'});}}
 function render(input){
@@ -38,7 +37,7 @@ function render(input){
     if(release.installer)actions.append(link('下载此版安装包 ↓',release.installer.url,'button button-primary'));
     actions.append(link('夸克各版本 ↗',quark,'button'),link('GitHub 发布页 ↗',release.url,'button'));
     const permalink=el('a','本版直达链接','button');permalink.href='#'+card.id;actions.append(permalink);
-    content.append(actions,copyControl());card.append(content);list.append(card);
+    content.append(actions);card.append(content);list.append(card);
   });
   const latest=releases[0];$('#latest-version').textContent=latest.tag+' · 正式版';$('#latest-size').textContent=latest.installer?`约 ${(latest.installer.size/1024/1024).toFixed(1)} MiB`:'';
   $('#latest-download').href=latest.installer?.url??latest.url;$('#latest-notes').href='#release-'+latest.tag;
@@ -54,7 +53,6 @@ async function updates(){
   }catch{$('#release-status').textContent=available?'暂时无法刷新，当前显示已保存的发布记录。':'暂时无法读取更新记录，请通过下方 GitHub 发布页查看。';}
 }
 document.addEventListener('click',async event=>{
-  const copy=event.target.closest('[data-copy-code]');if(copy){const status=$('#copy-status');try{await navigator.clipboard.writeText(code);status.textContent='提取码 Jd1Z 已复制';}catch{status.textContent='提取码：Jd1Z，请长按或选中文字复制';}setTimeout(()=>status.textContent='',3200);}
   const shot=event.target.closest('[data-image]');if(shot){$('#image-title').textContent=shot.dataset.title;$('#large-image').src=shot.dataset.image;$('#large-image').alt=shot.dataset.title;$('#original-image').href=shot.dataset.image;$('#image-dialog').showModal();}
 });
 $('#close-image').addEventListener('click',()=>$('#image-dialog').close());
