@@ -1,4 +1,4 @@
-import {normalizeReleases} from './releases.mjs?v=20261011-rights-final';
+import {normalizeReleases} from './releases.mjs?v=20261011-mobile-current';
 const repo='https://github.com/zxz0119/xiyousha-desktop',api='https://api.github.com/repos/zxz0119/xiyousha-desktop/releases';
 const quark='https://pan.quark.cn/s/7b98d60e6ce2?pwd=Jd1Z';
 const $=s=>document.querySelector(s);
@@ -65,32 +65,6 @@ async function repositoryStats(){
     }catch{counter.textContent='查看';entry.title='暂时无法读取'+source.label+'，点击前往GitHub查看';}
   }));
 }
-function startMobileReleaseCountdown(){
-  const panel=$('#mobile-panel'),upcoming=$('#mobile-release-upcoming'),download=$('#mobile-release-download'),pending=$('#mobile-release-pending');
-  const releaseAt=Date.parse('2026-10-07T17:00:00+08:00'),ready=panel.dataset.downloadReady==='true';
-  const update=()=>{
-    let remaining=releaseAt-Date.now();
-    if(remaining<=0){
-      upcoming.hidden=true;download.hidden=!ready;pending.hidden=ready;
-      if(ready){$('#mobile-quark-download').href=quark;$('#tab-mobile small').textContent='0.12.0';
-        const published=panel.dataset.publishedAt;
-        if(published&&Number.isFinite(Date.parse(published))){const stamp=$('[data-mobile-publication]');stamp.dateTime=published;stamp.textContent=date(published);}
-      }
-      return false;
-    }
-    const days=Math.floor(remaining/86400000);remaining%=86400000;
-    const hours=Math.floor(remaining/3600000);remaining%=3600000;
-    const minutes=Math.floor(remaining/60000);const seconds=Math.floor(remaining/1000)%60;
-    $('#mobile-countdown-days').textContent=String(days).padStart(2,'0');
-    $('#mobile-countdown-hours').textContent=String(hours).padStart(2,'0');
-    $('#mobile-countdown-minutes').textContent=String(minutes).padStart(2,'0');
-    $('#mobile-countdown-seconds').textContent=String(seconds).padStart(2,'0');
-    return true;
-  };
-  if(update()){const timer=window.setInterval(()=>{if(!update())window.clearInterval(timer);},1000);}
-  document.addEventListener('visibilitychange',()=>{if(!document.hidden)update();});
-  window.addEventListener('pageshow',update);
-}
 async function updates(){
   let available=false;
   try{available=render(await json(new URL('releases.json',import.meta.url)));if(available)$('#release-status').textContent='已加载发布记录，正在检查最新变化…';}catch{}
@@ -114,7 +88,8 @@ function selectPlatform(platform){
   }
 }
 function platformRoute(){
-  const hash=location.hash;
+  let hash=location.hash;
+  if(hash.startsWith('#mobile-release-')&&!document.getElementById(hash.slice(1))){hash='#mobile-release-v'+$('#mobile-panel').dataset.version;history.replaceState(null,'',hash);}
   if(hash==='#mobile'||hash.startsWith('#mobile-')){selectPlatform('mobile');if(hash==='#mobile')window.scrollTo({top:0,left:0,behavior:'instant'});else document.getElementById(hash.slice(1))?.scrollIntoView({block:'start'});}
   else if(['','#desktop','#features','#updates','#server','#preview-0125'].includes(hash)||hash.startsWith('#release-')){
     const switched=$('#desktop-panel').hidden;selectPlatform('desktop');
@@ -140,4 +115,3 @@ headerObserver.observe($('.site-header'));
 platformRoute();
 updates();
 repositoryStats();
-startMobileReleaseCountdown();
