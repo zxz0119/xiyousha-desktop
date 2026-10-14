@@ -1,4 +1,4 @@
-import {normalizeReleases} from './releases.mjs?v=20261011-mobile-current';
+import {normalizeReleases} from './releases.mjs?v=20261014-release-0130';
 const repo='https://github.com/zxz0119/xiyousha-desktop',api='https://api.github.com/repos/zxz0119/xiyousha-desktop/releases';
 const quark='https://pan.quark.cn/s/7b98d60e6ce2?pwd=Jd1Z';
 const $=s=>document.querySelector(s);
@@ -24,7 +24,7 @@ function notes(body){
   }return box;
 }
 function date(value){
-  if(!value)return '历史版本';
+  if(!value)return '发布时间见发布页';
   const parts=Object.fromEntries(new Intl.DateTimeFormat('zh-CN',{timeZone:'Asia/Shanghai',year:'numeric',month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit',hourCycle:'h23'}).formatToParts(new Date(value)).filter(part=>part.type!=='literal').map(({type,value:part})=>[type,part]));
   return `${parts.year}-${parts.month}-${parts.day} ${parts.hour}:${parts.minute}`;
 }
@@ -39,7 +39,8 @@ function render(input){
     const content=el('div',undefined,'release-content');content.append(notes(release.body));
     const actions=el('div',undefined,'release-actions');
     if(release.installer)actions.append(link('下载此版安装包 ↓',release.installer.url,'button button-primary'));
-    if(release.serverInstaller)actions.append(link('下载此版开服器 ↓',release.serverInstaller.url,'button'));
+    if(release.serverInstaller)actions.append(link('下载Windows开服器 ↓',release.serverInstaller.url,'button'));
+    if(release.linuxServer)actions.append(link('下载Linux开服器 ↓',release.linuxServer.url,'button'));
     actions.append(link('夸克备用下载 ↗',quark,'button'),link('GitHub 发布页 ↗',release.url,'button'));
     const permalink=el('a','本版直达链接','button');permalink.href='#'+card.id;actions.append(permalink);
     content.append(actions);card.append(content);list.append(card);
@@ -47,6 +48,7 @@ function render(input){
   const latest=releases[0];$('#latest-version').textContent=latest.tag+' · 正式版';$('#latest-size').textContent=latest.installer?`约 ${(latest.installer.size/1024/1024).toFixed(1)} MiB`:'';
   $('#latest-download').href=latest.installer?.url??latest.url;$('#latest-notes').href='#release-'+latest.tag;
   if(latest.serverInstaller&&$('#latest-server-download')){$('#latest-server-download').href=latest.serverInstaller.url;$('#latest-server-download').textContent='下载开服器 '+latest.tag+' ↓';}
+  if(latest.linuxServer&&$('#latest-linux-download')){$('#latest-linux-download').href=latest.linuxServer.url;$('#latest-linux-download').textContent='下载Linux开服器 '+latest.tag+' ↓';}
   revealHash();return true;
 }
 async function json(url){const response=await fetch(url,{signal:AbortSignal.timeout(10000),headers:{Accept:'application/json'}});if(!response.ok)throw new Error('request failed');return response.json();}
@@ -91,10 +93,10 @@ function platformRoute(){
   let hash=location.hash;
   if(hash.startsWith('#mobile-release-')&&!document.getElementById(hash.slice(1))){hash='#mobile-release-v'+$('#mobile-panel').dataset.version;history.replaceState(null,'',hash);}
   if(hash==='#mobile'||hash.startsWith('#mobile-')){selectPlatform('mobile');if(hash==='#mobile')window.scrollTo({top:0,left:0,behavior:'instant'});else document.getElementById(hash.slice(1))?.scrollIntoView({block:'start'});}
-  else if(['','#desktop','#features','#updates','#server','#preview-0125'].includes(hash)||hash.startsWith('#release-')){
+  else if(['','#desktop','#features','#updates','#server','#preview-0130'].includes(hash)||hash.startsWith('#release-')){
     const switched=$('#desktop-panel').hidden;selectPlatform('desktop');
     if(hash==='#desktop'||hash==='')window.scrollTo({top:0,left:0,behavior:'instant'});
-    else if(switched&&['#features','#updates','#server','#preview-0125'].includes(hash))document.getElementById(hash.slice(1))?.scrollIntoView({block:'start'});
+    else if(switched&&['#features','#updates','#server','#preview-0130'].includes(hash))document.getElementById(hash.slice(1))?.scrollIntoView({block:'start'});
   }
   revealHash();
 }
