@@ -1,0 +1,27 @@
+[
+  {
+    "tag_name": "v0.13.5",
+    "name": "v0.13.5：对局语音与视频配音，Windows／Linux开服器同步更新",
+    "draft": false,
+    "prerelease": false,
+    "published_at": null,
+    "body": "# 西游杀 v0.13.5\n\n本次发布Windows游戏、Windows独立开服器和Linux x64开服器；安卓版0.13.5正式APK从[夸克网盘](https://pan.quark.cn/s/7b98d60e6ce2?pwd=Jd1Z)获取。联机请配套使用相同版本。\n\n## 本次更新\n\n- 接入265条离线语音：51种牌的男女报牌、42种人物形态的受伤与阵亡台词，以及人物／唐僧技能台词；报牌按当前人物性别选择。\n- 新旧界面共用语音。转换牌播报实际用途，选牌和技能代价不误报原牌；真身或变身切换不误报阵亡。\n- 声音设置可分别控制对局语音与音效开关、音量；语音播放时临时降低背景音乐，结束后恢复。\n- 1080p30帧视频可加入对局语音并独立调节音量，支持语音、背景音乐混合或完全静音，片尾保留耗时与版本。\n- 修复音乐署名参数导致带背景音乐的视频导出失败；保留音乐署名与许可。\n- 断线重连和后台返回不补播离线历史；联机结束仍播报本次真正阵亡，退出、换局及后台停止清理语音。\n- Windows与Linux x64开服器同步0.13.5及公开语音事件；联机双方与开服器须使用相同版本。\n- 安卓版0.13.5正式APK已由维护者替换到原网盘，包含离线语音、独立音量、原生视频配音与重连修复；APK不上传GitHub Release。\n- 电脑版修复同一次判定、重连后的历史受击与音效重复播放，录像结算帧不再重显旧判定；新版体力变化只显示一份数字。\n- 电脑版修复弥勒佛超度、黑风怪追加攻、巨灵神反击及白骨精死亡反击等专属响应窗口的选牌与确认，原合法动作和规则保持。\n\n## 下载与更新\n\n- Windows游戏：`xiyousha_0.13.5_x64-setup.exe`，约241.6MiB；附原游戏更新签名。\n- Windows开服器：`xiyousha-server_0.13.5_x64-setup.exe`，约46.8MiB。\n- Linux开服器：`xiyousha-server_0.13.5_linux_x64.tar.gz`，约42.4MiB；x64/glibc，内置Node24，无需桌面。解压后运行`./manage.sh`，不适用于ARM64或Alpine/musl。\n- `latest.json`只更新Windows游戏，开服器独立下载。附件校验见`SHA256SUMS.txt`；同为0.13.5的早期测试包请手动覆盖更新。\n- 安卓APK仅走原夸克入口，手动覆盖更新；视频生成时保持前台。\n\nWindows游戏沿用原公钥签名；原生视频的语音、音乐混合及静音已验证。Windows与Linux开服器通过隔离协议、开局及恢复检查。未执行真实覆盖安装、公网长时或手机品牌混合网络验收；未部署目标服务器systemd。\n\nGood哥制作 · 非官方、非商业的个人学习与交流项目 · 免费提供，禁止售卖。第三方素材、参考来源和字体／音乐许可见[项目说明](https://github.com/zxz0119/xiyousha-desktop/blob/main/README.md#参考来源与权利联系)。\n",
+    "assets": [
+      {
+        "name": "xiyousha_0.13.5_x64-setup.exe",
+        "size": 253379182,
+        "browser_download_url": "https://github.com/zxz0119/xiyousha-desktop/releases/download/v0.13.5/xiyousha_0.13.5_x64-setup.exe"
+      },
+      {
+        "name": "xiyousha-server_0.13.5_x64-setup.exe",
+        "size": 49032054,
+        "browser_download_url": "https://github.com/zxz0119/xiyousha-desktop/releases/download/v0.13.5/xiyousha-server_0.13.5_x64-setup.exe"
+      },
+      {
+        "name": "xiyousha-server_0.13.5_linux_x64.tar.gz",
+        "size": 44438637,
+        "browser_download_url": "https://github.com/zxz0119/xiyousha-desktop/releases/download/v0.13.5/xiyousha-server_0.13.5_linux_x64.tar.gz"
+      }
+    ]
+  }
+]
