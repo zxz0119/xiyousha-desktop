@@ -1,0 +1,42 @@
+[
+  {
+    "tag_name": "v0.13.8",
+    "name": "西游杀 v0.13.8｜AI 优化与多端修复",
+    "draft": false,
+    "prerelease": false,
+    "published_at": "2026-10-20T12:57:54Z",
+    "body": "# 西游杀 v0.13.8\n\nWindows 游戏、Windows／Linux x64开服器配套更新。安卓版0.13.8正式APK已替换到[原夸克网盘](https://pan.quark.cn/s/7b98d60e6ce2?pwd=Jd1Z)，APK不上传Release。联机请使用相同的0.13.8版本。\n\n## 本次更新\n\n- 多系统：AI按装备组合和替换净收益换装，避免反复换武器；识别当前人物、身份的专属能力与一次性附加武器。\n- 多系统：改进白骨精变身、沙和尚赠装、托塔猜拳、换血、治疗和转换技能的时机、目标及代价，优先保留稀缺救命牌。\n- 多系统：连续行动比较最终净收益；简单单步、普通最多3步、困难最多6步，保留三档差异。\n- 多系统：完善公开敌我行为判断与身份互换后的证据清理；困难AI仅额外识别相同身份，不读取暗手牌。\n- 电脑版：修复保存返回弹窗两个设置栏目同时展开后无法下滑，可滚动查看存档和底部按钮。\n- 安卓：为旧WebView补齐脚本接口、布局选择器、尺寸计算与间距，改善Android 10旧内核的启动、布局和卡面绘制。\n- 安卓：页面切换保留公共背景，修复旧内核主页卷轴、GM区域溢出、长英文聊天换行与消息弹窗层级。\n- 安卓：修复原生视频回放误用电脑布局、手牌裁切与旧内核透明动画图层显示。\n- 开服器：Windows／Linux x64同步最新共用AI，版本统一为0.13.8，保留电脑房主断线恢复。\n\n## 下载与更新\n\n- Windows游戏：xiyousha_0.13.8_x64-setup.exe，约241.7MiB，沿用原更新签名。\n- Windows开服器：xiyousha-server_0.13.8_x64-setup.exe，约46.8MiB。\n- Linux开服器：xiyousha-server_0.13.8_linux_x64.tar.gz，约42.6MiB，x64/glibc，内置Node24，解压后运行 ./manage.sh。\n- latest.json仅用于Windows游戏自动更新，开服器独立下载；附件校验见SHA256SUMS.txt。\n- 安卓APK从原网盘手动覆盖更新，保持原签名和应用标识；导出视频时保持前台。\n\nGood哥制作 · 非官方、非商业的独立个人作品 · 免费提供，禁止售卖。素材来源和许可见公开README。\n",
+    "assets": [
+      {
+        "name": "latest.json",
+        "size": 2881,
+        "browser_download_url": "https://github.com/zxz0119/xiyousha-desktop/releases/download/v0.13.8/latest.json"
+      },
+      {
+        "name": "SHA256SUMS.txt",
+        "size": 483,
+        "browser_download_url": "https://github.com/zxz0119/xiyousha-desktop/releases/download/v0.13.8/SHA256SUMS.txt"
+      },
+      {
+        "name": "xiyousha-server_0.13.8_linux_x64.tar.gz",
+        "size": 44710961,
+        "browser_download_url": "https://github.com/zxz0119/xiyousha-desktop/releases/download/v0.13.8/xiyousha-server_0.13.8_linux_x64.tar.gz"
+      },
+      {
+        "name": "xiyousha-server_0.13.8_x64-setup.exe",
+        "size": 49040084,
+        "browser_download_url": "https://github.com/zxz0119/xiyousha-desktop/releases/download/v0.13.8/xiyousha-server_0.13.8_x64-setup.exe"
+      },
+      {
+        "name": "xiyousha_0.13.8_x64-setup.exe",
+        "size": 253396684,
+        "browser_download_url": "https://github.com/zxz0119/xiyousha-desktop/releases/download/v0.13.8/xiyousha_0.13.8_x64-setup.exe"
+      },
+      {
+        "name": "xiyousha_0.13.8_x64-setup.exe.sig",
+        "size": 440,
+        "browser_download_url": "https://github.com/zxz0119/xiyousha-desktop/releases/download/v0.13.8/xiyousha_0.13.8_x64-setup.exe.sig"
+      }
+    ]
+  }
+]
